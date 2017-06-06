@@ -1,0 +1,15 @@
+*** Settings ***
+Library           SSHLibrary
+
+*** Variables ***
+${url}            google.pl
+
+*** Test Cases ***
+1
+    Open Connection    46.101.195.218
+    Login    studentwsb    lubieStudia@#
+    Start Command    ls
+    ${stdout}=    Read Command Output
+    Start Command    cat sprawdz_ten_plik
+    ${stdout}=    Read Command Output
+    Close Connection
